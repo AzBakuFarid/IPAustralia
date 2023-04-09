@@ -1,28 +1,28 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace IPAustralia.Responses
 {
     public class TrademarkSearchResponseDto
     {
-        [JsonProperty("number")]
+        [JsonPropertyName("number")]
         public string Number { get; set; }
 
-        [JsonProperty("logo_url")]
+        [JsonPropertyName("logo_url")]
         public string LogoUrl { get; set; }
 
-        [JsonProperty("name")]
+        [JsonPropertyName("name")]
         public string Name { get; set; }
 
-        [JsonProperty("classes")]
+        [JsonPropertyName("classes")]
         public string Classes { get; set; }
 
-        [JsonProperty("status1")]
+        [JsonPropertyName("status1")]
         public string Status1 { get; set; }
 
-        [JsonProperty("status2")]
+        [JsonPropertyName("status2")]
         public string Status2 { get; set; }
 
-        [JsonProperty("details_page_url")]
+        [JsonPropertyName("details_page_url")]
         public string DetailsUrl { get; set; }
     }
 }

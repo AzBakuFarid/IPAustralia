@@ -1,10 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace IPAustralia.Models
 {
     public class AustraliaSearchCountResponseDto
     {
-        [JsonProperty("count")] public int Count { get; set; }
-        [JsonProperty("errors")] public string Errors { get; set; }
+        [JsonPropertyName("count")] public int Count { get; set; }
+        [JsonPropertyName("errors")] public string Errors { get; set; }
     }
 }
