@@ -3,6 +3,7 @@ using IPAustralia.Models;
 using IPAustralia.ServiceAbstractions;
 using Microsoft.Extensions.Options;
 using IPAustralia.Exceptions;
+using IPAustralia.Extensions;
 
 namespace IPAustralia.Services
 {
@@ -31,6 +32,8 @@ namespace IPAustralia.Services
         public async Task<SearchResultDto> Search(IFilterable filter, CancellationToken ct)
         {
             var result = new SearchResultDto();
+            if (filter is null || filter.TrademarkName.IsMissing()) return result;
+
             var countUrl = string.Format(this._config.CountFullAddress, filter.TrademarkName);
             var countRequestResult = await _apiCaller.Get<AustraliaSearchCountResponseDto>(countUrl, ct);
             int totalCount = countRequestResult.Response.Count;
